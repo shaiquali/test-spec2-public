@@ -28,9 +28,9 @@ grains:
         name: '{{ .inputs.host_name }}'
         service-account: '{{ .inputs.service_account_name }}'
       env-vars: 
-        - ARM_SUBSCRIPTION_ID: {{ .inputs.subscription_id }}
-        - ARM_TENANT_ID: {{ .inputs.tenant_id }}
-        - ARM_CLIENT_ID: {{ .inputs.client_id }}
+        - ARM_SUBSCRIPTION_ID: '{{ .inputs.subscription_id }}'
+        - ARM_TENANT_ID: '{{ .inputs.tenant_id }}'
+        - ARM_CLIENT_ID: '{{ .inputs.client_id }}'
         - ARM_USE_OIDC: true
         - ARM_OIDC_TOKEN_FILE_PATH: /var/run/secrets/azure/tokens/azure-identity-token
       tf-version: 1.3.6
