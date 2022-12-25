@@ -26,7 +26,6 @@ grains:
         path: terraform/azure-RG
       host:
         name: '{{ .inputs.host_name }}'
-        service-account: '{{ .inputs.service_account_name }}'
       env-vars: 
         - ARM_SUBSCRIPTION_ID: '{{ .inputs.subscription_id }}'
         - ARM_TENANT_ID: '{{ .inputs.tenant_id }}'
