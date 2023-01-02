@@ -1,0 +1,22 @@
+spec_version: 2-preview
+
+description: description text
+
+
+inputs:
+  host_name:
+    type: string
+    display-style: normal
+    default: "eks"
+
+grains:
+
+  apache:
+    kind: helm
+    spec:
+      source:
+        path: https://github.com/bitnami/charts.git//bitnami/apache
+      host:
+        name: '{{ .inputs.host_name }}'
+      commands:
+        - dep up bitnami/apache
