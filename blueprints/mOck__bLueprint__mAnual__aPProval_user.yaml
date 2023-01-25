@@ -1,0 +1,27 @@
+spec_version: 2-preview
+
+inputs:
+  compute_service_name:
+    type: string
+    default: "eks"
+
+grains:
+  helloTF:
+    kind: terraform
+    spec:
+      source:
+        path: terraform/simple-tf-module
+        store: test-spec2-public
+      host:
+        name: '{{.inputs.compute_service_name}}'
+      scripts: 
+        pre-tf-init:
+          source:
+            store: test-spec2-public
+            path : scripts/tomerv_user_script.sh
+          arguments: "value"
+        pre-tf-destroy:
+          source:
+            store: test-spec2-public
+            path : scripts/tomerv_user_script.sh
+          arguments: "value"     
