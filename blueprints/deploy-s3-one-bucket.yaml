@@ -15,7 +15,7 @@ grains:
     kind: terraform
     spec: 
       source:
-        store: test-spec2-public
+        store: spec2_repo_blue
         path: terraform/s3
       host:
         name: '{{.inputs.compute_service_name}}'
