@@ -5,11 +5,6 @@ outputs:
   bucket_1:
     value: '{{ .grains.bucket_1.outputs.s3_bucket_arn }}'
 
-inputs:
-  compute_service_name:
-    type: execution-host
-
-
 grains:
   bucket_1:
     kind: terraform
@@ -17,7 +12,7 @@ grains:
       source:
         path: github.com/QualiNext/test-spec2-public//terraform/s3
       host:
-        name: '{{.inputs.compute_service_name}}'
+        name: 'aks'
       inputs:
         - region: eu-west-1
         - acl: private
