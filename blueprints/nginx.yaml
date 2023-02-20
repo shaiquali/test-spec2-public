@@ -1,12 +1,6 @@
 spec_version: 2
 description: Blueprint for nginx helm chart 
 
-# inputs:
-#   host_name:
-#     type: string
-#     display-style: normal
-#     default: "eks"
-
 grains:
 
   nginx:
