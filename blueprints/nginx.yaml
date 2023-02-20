@@ -10,6 +10,6 @@ grains:
         store: spec2_repo_blue
         path: helm/nginx
       host:
-        name: '{{ .inputs.host_name }}'
+        name: aks
       commands:
         - dep up helm/nginx
