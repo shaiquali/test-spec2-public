@@ -1,6 +1,12 @@
 spec_version: 2
 description: Blueprint for nginx helm chart 
 
+inputs:
+  host_name:
+    type: string
+    display-style: normal
+    default: "eks"
+
 grains:
 
   nginx:
@@ -10,6 +16,6 @@ grains:
         store: spec2_repo_blue
         path: helm/nginx
       host:
-        name: aks
+        name: '{{ .inputs.host_name }}'
       commands:
         - dep up helm/nginx
