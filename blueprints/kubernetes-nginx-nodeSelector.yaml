@@ -29,6 +29,8 @@ grains:
         name: '{{.inputs.host_name}}'
         service-account: "default"
         kubernetes:
+          pod-labels:
+          - labelKey: labelValue
           nodeSelector:
           - app: torque
   
