@@ -1,0 +1,24 @@
+spec_version: 2
+description: Blueprint for nginx helm chart 
+
+inputs:
+  host_name:
+    type: string
+    display-style: normal
+    default: "eks"
+
+grains:
+
+  nginx:
+    kind: helm
+    spec:
+      source:
+        store: spec2_repo_blue
+        path: helm/nginx
+      host:
+        name: '{{ .inputs.host_name }}'
+        kubernetes:
+          nodeSelector:
+          - app: torque
+      commands:
+        - dep up helm/nginx
