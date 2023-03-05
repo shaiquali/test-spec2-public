@@ -17,7 +17,7 @@ grains:
           nodeSelector:
           - app: torque
           pod-labels:
-          - labelKey: labelValue
+          - labelTFKey: labelTFValue
       inputs:
         - region: us-west-1
         - acl: private
