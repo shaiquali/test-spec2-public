@@ -30,7 +30,7 @@ grains:
         service-account: "default"
         kubernetes:
           pod-labels:
-          - labelKey: labelValue
+          - labelK8SKey: labelK8SValue
           nodeSelector:
           - app: torque
   
