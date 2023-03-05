@@ -1,0 +1,57 @@
+kind: bluperint 
+spec_version: 2-preview
+description: validating a k8s deployment file and then deploy it
+
+
+inputs:
+  repoUrl:
+    type: string
+    display-style: normal
+    default: "http://github.com/QualiNext/test-spec2-public"
+    description: "path to the repo to clone"
+
+  repoName:
+    type: string
+    display-style: normal
+    default: "test-spec2-public"
+    description: "the repo's name"
+
+  filePath:
+    type: string
+    display-style: normal
+    default: "manifests/nginx1/nginxmanifest-fixed.yaml"
+    description: "the file name in the repo"
+
+  namespace:
+    type: string
+    display-style: normal
+    default: "shaip-sandbox"
+    description: "Kubernetes namespace for sandbox to be ran in"
+
+grains:
+  validate:
+    kind: shell
+    spec:
+      host:
+        name: eks
+      activities:
+        deploy:
+          commands:
+            - "apt-get -y install git unzip curl"
+            - "git clone {{ .inputs.repoUrl }}"
+            - "curl https://get.datree.io | /bin/bash"
+            - "datree test {{.inputs.repoName}}/{{.inputs.filePath}}"
+
+  installNginx:
+    kind: kubernetes
+    depends-on: validate
+    spec:
+      host:
+        name: eks
+        kubernetes:
+          nodeSelector:
+          - app: torque
+      source:
+        path: github.com/QualiNext/test-spec2-public.git//manifests/nginx1/nginxmanifest-fixed.yaml
+      namespace: '{{ .inputs.namespace }}'
+
