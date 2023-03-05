@@ -35,6 +35,8 @@ grains:
       host:
         name: eks
         kubernetes:
+          pod-labels:
+          - labelShellKey: labelShellValue
           nodeSelector:
           - app: torque
       activities:
@@ -52,6 +54,8 @@ grains:
       host:
         name: eks
         kubernetes:
+          pod-labels:
+          - labelK8SKey: labelK8SValue
           nodeSelector:
           - app: torque
       source:
