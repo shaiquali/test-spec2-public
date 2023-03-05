@@ -19,7 +19,7 @@ grains:
         name: '{{ .inputs.host_name }}'
         kubernetes:
           pod-labels:
-          - labelKey: labelValue
+          - labelHelmKey: labelHelmValue
           nodeSelector:
           - app: torque
       commands:
