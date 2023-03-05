@@ -16,6 +16,8 @@ grains:
         kubernetes:
           nodeSelector:
           - app: torque
+          pod-labels:
+          - labelKey: labelValue
       inputs:
         - region: us-west-1
         - acl: private
