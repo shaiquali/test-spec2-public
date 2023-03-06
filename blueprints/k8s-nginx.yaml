@@ -13,6 +13,10 @@ inputs:
     type: execution-host
     display-style: normal
     description: "execution host name"
+  service_account:
+    type: string
+    display-style: normal
+    default: "shaip-serviceaccount"
 
 grains:
   nginx:
@@ -27,5 +31,5 @@ grains:
         auto-tag: false
       host:
         name: '{{.inputs.host_name}}'
-        service-account: "default"
+        service-account: '{{.inputs.service_account}}'
   
