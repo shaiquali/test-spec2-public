@@ -10,8 +10,9 @@ inputs:
     default: "shaip-sandbox"
     description: "Kubernetes namespace for sandbox to be ran in."
   host_name:
-    type: execution-host
+    type: string
     display-style: normal
+    default: "eks"
     description: "execution host name"
   service_account:
     type: string
