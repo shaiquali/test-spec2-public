@@ -5,7 +5,7 @@ description: deploy azure vm
 inputs:
   compute_service_name:
     type: string
-    default: "eks"
+    default: "aks"
     display-style: normal
   vm_name:
     type: string
