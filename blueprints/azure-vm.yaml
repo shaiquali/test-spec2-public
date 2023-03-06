@@ -21,7 +21,7 @@ grains:
     kind: terraform
     spec:
       source:
-        path: github.com/QualiNext/test-spec2-public.git//terraform/azure-vm
+        path: github.com/shaiquali/test-spec2-public.git//terraform/azure-vm
       host:
         name: '{{.inputs.compute_service_name}}'
       inputs:
