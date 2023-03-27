@@ -5,7 +5,7 @@ inputs:
   host_name:
     type: string
     display-style: normal
-    default: "aks"
+    default: "eks"
 
 grains:
   ec2:
