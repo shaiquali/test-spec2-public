@@ -1,6 +1,12 @@
 spec_version: 2-preview
 description: deploy ec2 instance
 
+inputs:
+  host_name:
+    type: string
+    display-style: normal
+    default: "aks"
+
 grains:
   ec2:
     kind: terraform
@@ -8,5 +14,5 @@ grains:
       source:
         path: https://github.com/QualiNext/test-spec2-public//terraform/ec2
       host:
-        name: demo-dev
+        name: '{{ .inputs.host_name }}'
 
