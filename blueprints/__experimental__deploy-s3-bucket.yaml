@@ -4,7 +4,7 @@ description: deploy s3 bucket
 inputs:
   compute_service_name:
     type: string   
-    default: eks
+    default: "eks"
 
 outputs:
   bucket_1:
