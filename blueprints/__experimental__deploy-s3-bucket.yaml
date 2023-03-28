@@ -4,6 +4,7 @@ description: deploy s3 bucket
 inputs:
   compute_service_name:
     type: string   
+    default: eks
 
 outputs:
   bucket_1:
@@ -14,7 +15,8 @@ grains:
     kind: terraform
     spec: 
       source:
-        path: github.com/QualiNext/test-spec2-public//terraform/s3
+        store: spec2_repo_blue
+        path: terraform/s3
       host:
         name: '{{.inputs.compute_service_name}}' 
       inputs:
