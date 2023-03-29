@@ -13,7 +13,7 @@ grains:
     spec: 
       source:
         store: spec2_repo_blue
-        path: terraform/ec2-simple2
+        path: terraform/ec2-simple
       host:
         name: '{{ .inputs.host_name }}'
 
