@@ -22,7 +22,7 @@ grains:
       inputs:
         - region: us-west-1
         - acl: private
-        - name: 'test-bucket-1-s3-wow-{{ sandboxid | downcase }}'
+        - name: 'test-bucket-1-s3-wow'
       outputs:
         - s3_bucket_arn
 
