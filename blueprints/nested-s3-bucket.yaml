@@ -12,7 +12,7 @@ grains:
     spec:
       source:
         store: spec2_repo_blue
-        path: blueprints\deploy-s3-two-buckets.yaml
+        path: https://github.com/shaiquali/test-spec2-public/blueprints/deploy-s3-two-buckets.yaml
       host:
         name: '{{.inputs.compute_service_name}}'
 
