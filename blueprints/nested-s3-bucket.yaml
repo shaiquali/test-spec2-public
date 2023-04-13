@@ -11,6 +11,7 @@ grains:
     kind: blueprint
     spec:
       source:
+        store: spec2_repo_blue
         path: blueprints\deploy-s3-two-buckets.yaml
       host:
         name: '{{.inputs.compute_service_name}}'
