@@ -25,7 +25,7 @@ grains:
     depends-on: simple-tf
     spec:
       source:
-        store: spec2-public
+        store: spec2_repo_blue
         path: blueprints
       host:
         name: '{{inputs.tf-host-name}}'
