@@ -35,7 +35,7 @@ grains:
       host:
         name: eks
       files:
-        - path: https://github.com/shaiquali/test-spec2-public.git/scripts/hell-grain-script.sh
+        - path: https://github.com/shaiquali/test-spec2-public/scripts/hell-grain-script.sh
       activities:
         deploy:
           commands:
