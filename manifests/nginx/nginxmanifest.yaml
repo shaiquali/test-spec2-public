@@ -6,7 +6,7 @@ spec:
   selector:
     matchLabels:
       app: nginx
-  replicas: 2 # tells deployment to run 2 pods matching the template TEST
+  replicas: 2 # tells deployment to run 2 pods matching the template TESTing agaian
   template:
     metadata:
       labels:
