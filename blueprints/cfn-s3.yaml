@@ -31,8 +31,7 @@ grains:
         path: https://quali-dannyk-storage.s3.amazonaws.com/AWSS3Bucket_in_out.json    
       region: us-east-1
       authentication:
-        role-arn: '{{ .inputs.role_arn }}'
-        external-id: '{{ .inputs.external_id }}'
+        - aws-auth
       inputs:
         - accesscontrol: '{{ .inputs.access_control }}'
       outputs:
