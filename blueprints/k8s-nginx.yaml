@@ -35,6 +35,7 @@ grains:
         service-account: '{{.inputs.service_account}}'
       scripts:
         post-kubernetes-install:
-          store: spec2_repo_blue
-          path: scripts/echo.sh
+          source:
+            store: spec2_repo_blue
+            path: scripts/echo.sh
   
