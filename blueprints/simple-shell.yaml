@@ -2,19 +2,23 @@ kind: bluperint
 spec_version: 2-preview
 description: validating a k8s deployment file and then deploy it
 
+inputs:
+  compute-service:
+    type: execution-host
+    display-style: normal
+    description: "Compute service name."
+    default: eks
 
 grains:
   validate:
     kind: shell
     spec:
       host:
-        name: eks
-        kubernetes:
-          pod-labels:
-          - labelShellKey: labelShellValue
-          nodeSelector:
-          - app: torque
+        name: '{{ .inputs.compute-service }}'
+      files:
+        - path: "scripts/echo.sh"
+          source: spec2_repo_blue
       activities:
         deploy:
           commands:
-            - "apt-get -y install git unzip curl"
+            - "./echo.sh"
