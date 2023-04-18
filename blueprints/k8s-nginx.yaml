@@ -24,7 +24,8 @@ grains:
     kind: kubernetes
     spec:
       source:
-        path: github.com/QualiNext/test-spec2-public//manifests/nginx/nginxmanifest.yaml
+        store: spec2_repo_blue
+        path: manifests/nginx/nginxmanifest.yaml
       namespace: '{{ .inputs.namespace }}'
       env-vars:
       - test: newValue
