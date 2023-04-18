@@ -25,13 +25,13 @@ grains:
         - name: 'test-bucket-1-s3-{{ sandboxid | downcase }}'
       outputs:
         - s3_bucket_arn
-            scripts: 
-      pre-tf-init:
-        source:
-           store: spec2_repo_blue
-           path : scripts/echo.sh
-      pre-tf-destroy:
-        source:
-          store: spec2_repo_blue
-          path : scripts/echo2.sh
+      scripts: 
+        pre-tf-init:
+          source:
+             store: spec2_repo_blue
+             path : scripts/echo.sh
+        pre-tf-destroy:
+          source:
+            store: spec2_repo_blue
+            path : scripts/echo2.sh
 
