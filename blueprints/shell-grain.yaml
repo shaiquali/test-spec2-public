@@ -36,7 +36,7 @@ grains:
         name: eks
       files:
         - source: spec2_repo_blue
-          path: github.com/QualiNext/test-spec2-public.git//scripts/shell-grain-script.sh
+          path: scripts/shell-grain-script.sh
       activities:
         deploy:
           commands:
