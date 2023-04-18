@@ -8,7 +8,7 @@ outputs:
 inputs:
   compute_service_name:
     type: string
-    default: "My bucket"
+    default: "eks"
 
 grains:
   bucket_1:
