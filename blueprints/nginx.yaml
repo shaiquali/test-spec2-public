@@ -21,6 +21,7 @@ grains:
         - dep up helm/nginx
       scripts:
         post-helm-install:
-          store: spec2_repo_blue
-          path: scripts/echo.sh
+          source:
+            store: spec2_repo_blue
+            path: scripts/echo.sh
           
