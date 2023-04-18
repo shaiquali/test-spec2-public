@@ -19,3 +19,8 @@ grains:
         name: '{{ .inputs.host_name }}'
       commands:
         - dep up helm/nginx
+      scripts:
+        post-helm-install:
+          store: spec2_repo_blue
+          path: scripts/echo.sh
+          
