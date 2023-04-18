@@ -27,8 +27,8 @@ grains:
     kind: cloudformation
     spec:
       source:
-        # store: autogen_repo_sandbox_3416a76b
-        path: https://quali-dannyk-storage.s3.amazonaws.com/AWSS3Bucket_in_out.json    
+        store: autogen_repo_sandbox_3416a76b
+        path: cloudFormation/s3.json
       region: us-east-1
       authentication:
         - aws-auth
