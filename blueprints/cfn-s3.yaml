@@ -27,7 +27,7 @@ grains:
     kind: cloudformation
     spec:
       source:
-        store: autogen_repo_sandbox_3416a76b
+        store: spec2_repo_blue
         path: cloudFormation/s3.json
       region: us-east-1
       authentication:
