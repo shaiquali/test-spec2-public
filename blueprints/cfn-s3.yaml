@@ -9,12 +9,6 @@ inputs:
        display-style: normal
        default: "Private"
 
-outputs:
-   arn:
-       value: '{{ .grains.cfn-s3-grain.outputs.Arn }}'
-   doamin_name:
-       value: '{{ .grains.cfn-s3-grain.outputs.DomainName }}'
-
 grains:
   cfn-s3-grain:
     kind: cloudformation
@@ -27,6 +21,3 @@ grains:
         - aws-auth
       inputs:
         - accesscontrol: '{{ .inputs.access_control }}'
-      outputs:
-         - Arn
-         - DomainName
