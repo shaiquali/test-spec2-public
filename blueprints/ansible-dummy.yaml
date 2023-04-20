@@ -22,7 +22,8 @@ grains:
     kind: ansible
     spec: 
       source:
-        path: https://github.com/QualiNext/test-spec2-public//ansible/test_playbook.yaml
+        store: spec2_repo_blue
+        path: ansible/test_playbook.yaml
       host:
         name: docker-agent
 
