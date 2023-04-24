@@ -3,8 +3,8 @@ description: deploy s3 bucket nested
 
 inputs:
   compute_service_name:
-    type: string
-    default: "eks-main"
+    type: agent
+    default: "eks"
 
 grains:
   s3-buckets:
