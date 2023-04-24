@@ -17,7 +17,7 @@ grains:
       source:
         store: spec2_repo_blue
         path: terraform/s3
-      host:
+      agent:
         name: '{{.inputs.compute_service_name}}'
       inputs:
         - region: eu-west-1
