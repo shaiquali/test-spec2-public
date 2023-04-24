@@ -15,7 +15,7 @@ grains:
       source:
         store: spec2_repo_blue
         path: helm/nginx
-      host:
+      agent:
         name: '{{ .inputs.host_name }}'
       commands:
         - dep up helm/nginx
