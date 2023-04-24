@@ -31,7 +31,7 @@ grains:
       - test: newValue
       tags:
         auto-tag: false
-      host:
+      agent:
         name: '{{.inputs.host_name}}'
         service-account: '{{.inputs.service_account}}'
       scripts:
