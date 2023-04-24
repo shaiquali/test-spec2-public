@@ -14,7 +14,7 @@ grains:
     spec: 
       source:
         path: https://github.com/QualiNext/test-spec2-public//terraform/s3
-      host:
+      agent:
         name: eks
       inputs:
         - region: us-west-1
@@ -28,7 +28,7 @@ grains:
     spec: 
       source:
         path: github.com/QualiNext/test-spec2-public//terraform/s3
-      host:
+      agent:
         name: eks
       inputs:
         - region: us-west-1
