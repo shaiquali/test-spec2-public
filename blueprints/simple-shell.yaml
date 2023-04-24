@@ -4,7 +4,7 @@ description: validating a k8s deployment file and then deploy it
 
 inputs:
   compute-service:
-    type: execution-host
+    type: agent
     display-style: normal
     description: "Compute service name."
     default: eks
