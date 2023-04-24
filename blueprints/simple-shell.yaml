@@ -13,7 +13,7 @@ grains:
   validate:
     kind: shell
     spec:
-      host:
+      agent:
         name: '{{ .inputs.compute-service }}'
       files:
         - path: "scripts/echo.sh"
