@@ -24,7 +24,7 @@ grains:
       source:
         store: spec2_repo_blue
         path: ansible/test_playbook.yaml
-      agnet:
+      agent:
         name: docker-agent
 
       inventory-file:
