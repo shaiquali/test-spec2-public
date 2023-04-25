@@ -11,7 +11,7 @@ grains:
     kind: helm
     spec:
       source:
-        store: test-spec2-public
+        store: spec2_repo_blue
         path: helm/bitnami_nginx
       agent:
         name: '{{ .inputs.host_name }}'
