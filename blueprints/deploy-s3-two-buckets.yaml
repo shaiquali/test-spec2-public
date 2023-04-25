@@ -19,7 +19,7 @@ grains:
       inputs:
         - region: us-west-1
         - acl: private
-        - name: 'amazing_bucket-1-s3-shaip'
+        - name: 'amazing-bucket-1-s3-{{ sandboxid | downcase }}'
       outputs:
         - s3_bucket_arn
 
@@ -33,7 +33,7 @@ grains:
       inputs:
         - region: us-west-1
         - acl: private
-        - name: 'amazing_bucket-2-s3-shaip'
+        - name: 'amazing-bucket-2-s3-{{ sandboxid | downcase }}'
       outputs:
         - s3_bucket_arn
 
