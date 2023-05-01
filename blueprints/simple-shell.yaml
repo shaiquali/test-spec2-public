@@ -18,6 +18,8 @@ grains:
       files:
         - path: "scripts/echo.sh"
           source: spec2_repo_blue
+        - path: "scripts/echo2.sh"
+          source: spec2_repo_blue
       activities:
         deploy:
           commands:
