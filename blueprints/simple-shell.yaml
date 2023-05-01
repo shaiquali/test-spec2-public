@@ -24,3 +24,5 @@ grains:
         deploy:
           commands:
             - "./echo.sh"
+            - "./echo2.sh"
+            
