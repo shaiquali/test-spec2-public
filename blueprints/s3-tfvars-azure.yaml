@@ -1,0 +1,47 @@
+spec_version: 2
+description: deploy s3 bucket
+
+outputs:
+  bucket_1:
+    value: '{{ .grains.bucket_1.outputs.s3_bucket_arn }}'
+
+inputs:
+  compute_service_name:
+    type: string
+    default: "eks"
+
+grains:
+  bucket_1:
+    kind: terraform
+    spec: 
+      source:
+        store: spec2_repo_blue
+        path: terraform/s3
+      tfvars-files:
+      - source:
+          store: spec2_repo_blue
+          path: terraform/s3/tfvars/test.tfvars
+      - source:
+          store: spec2_repo_blue
+          path: terraform/s3/tfvars/test2.tfvars
+      - source:
+          path: https://shaip0118@dev.azure.com/shaip0118/shaip/_git/shaip//terraform/s3/tfvars/test3.tfvars
+      - source:
+          path: https://shaip0118@dev.azure.com/shaip0118/shaip/_git/shaip//terraform/s3/tfvars/test4.tfvars
+      agent:
+        name: '{{.inputs.compute_service_name}}'
+      inputs:
+        - region: eu-west-1
+        - acl: private
+        - name: 'test-bucket-1-s3-{{ sandboxid | downcase }}'
+      outputs:
+        - s3_bucket_arn
+      scripts: 
+        pre-tf-init:
+          source:
+             store: spec2_repo_blue
+             path : scripts/echo.sh
+        pre-tf-destroy:
+          source:
+            store: spec2_repo_blue
+            path : scripts/echo2.sh
