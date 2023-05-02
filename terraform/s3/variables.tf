@@ -25,3 +25,29 @@ variable "user" {
     description = "Username to assign permissions for S3 bucket to. If left blank, will not create permissions."
     default = "none"
 }
+
+variable "tag1" {
+    description = "Region where to create resources" 
+    type = string
+    default = ""
+}
+
+variable "tag2" {
+    description = "Region where to create resources" 
+    type = string
+    default = ""
+}
+
+variable "tag3" {
+    description = "Region where to create resources" 
+    type = string
+    default = ""
+}
+
+
+variable "tag4" {
+    description = "Region where to create resources" 
+    type = string
+    default = ""
+}
+
