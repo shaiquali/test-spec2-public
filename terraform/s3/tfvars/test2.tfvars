@@ -6,4 +6,4 @@ acl="private"
 
 user="none"
 
-tag2="value2"
+tag2="github_2"
