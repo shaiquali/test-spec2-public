@@ -24,8 +24,10 @@ resource "aws_s3_bucket" "bucket" {
   tags = {
     Name        = "My bucket"
     Environment = "Dev"
-    A_NEW_TAG = "NEW TAG BUT WITH A"
-    A_NEWEST_TAG = "A_NEWEST_TAG"
+    tag1 = var.tag1
+    tag2 = var.tag2
+    tag3 = var.tag3
+    tag4 = var.tag4
   }
 }
 
