@@ -26,27 +26,32 @@ variable "user" {
     default = "none"
 }
 
+variable "input_tag" {
+    description = "tag to be set by blueprint input" 
+    type = string
+}
+
 variable "tag1" {
-    description = "Region where to create resources" 
+    description = "tag1" 
     type = string
     default = ""
 }
 
 variable "tag2" {
-    description = "Region where to create resources" 
+    description = "tag2" 
     type = string
     default = ""
 }
 
 variable "tag3" {
-    description = "Region where to create resources" 
+    description = "tag3" 
     type = string
     default = ""
 }
 
 
 variable "tag4" {
-    description = "Region where to create resources" 
+    description = "tag4" 
     type = string
     default = ""
 }
