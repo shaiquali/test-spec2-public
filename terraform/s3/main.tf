@@ -28,6 +28,7 @@ resource "aws_s3_bucket" "bucket" {
     tag2 = var.tag2
     tag3 = var.tag3
     tag4 = var.tag4
+    input_tag = var.input_tag
   }
 }
 
