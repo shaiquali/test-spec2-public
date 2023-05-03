@@ -9,7 +9,7 @@ inputs:
   compute_service_name:
     type: string
     default: "eks"
-
+    
 grains:
   bucket_1:
     kind: terraform
@@ -34,6 +34,7 @@ grains:
         - region: eu-west-1
         - acl: private
         - name: 'test-bucket-1-s3-{{ sandboxid | downcase }}'
+        - input_tag: "input_tag_value_from_blueprint"
       outputs:
         - s3_bucket_arn
       scripts: 
