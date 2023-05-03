@@ -8,7 +8,7 @@ outputs:
 inputs:
   compute_service_name:
     type: string
-    default: "eks"
+    default: "docker"
     
 grains:
   bucket_1:
