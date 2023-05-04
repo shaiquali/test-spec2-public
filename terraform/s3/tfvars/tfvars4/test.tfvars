@@ -8,4 +8,4 @@ user="none"
 
 tag4="tfvars_tfvars4_github_4"
 
-input_tag="input_vlaue_4"
+input_tag="tfvars_tfvars4_github_input_vlaue_4"
