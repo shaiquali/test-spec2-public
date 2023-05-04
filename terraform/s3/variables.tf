@@ -29,6 +29,7 @@ variable "user" {
 variable "input_tag" {
     description = "tag to be set by blueprint input" 
     type = string
+    default = ""
 }
 
 variable "tag1" {
