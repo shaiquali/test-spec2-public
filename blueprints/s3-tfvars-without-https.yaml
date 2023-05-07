@@ -25,9 +25,9 @@ grains:
           store: spec2_repo_blue
           path: terraform/s3/tfvars/test2.tfvars
       - source:
-          path: http://shaip0118@dev.azure.com/shaip0118/shaip/_git/spec2_repo_blue//terraform/s3/tfvars/test3.tfvars
+          path: shaip0118@dev.azure.com/shaip0118/shaip/_git/spec2_repo_blue//terraform/s3/tfvars/test3.tfvars
       - source:
-          path: http://github.com/shaiquali/test-spec2-public.git//terraform/s3/tfvars/test4.tfvars
+          path: github.com/shaiquali/test-spec2-public.git//terraform/s3/tfvars/test4.tfvars
       agent:
         name: '{{.inputs.compute_service_name}}'
       inputs:
