@@ -1,0 +1,26 @@
+kind: bluperint 
+spec_version: 2-preview
+description: validating a k8s deployment file and then deploy it
+
+inputs:
+  compute-service:
+    type: agent
+    display-style: normal
+    description: "Compute service name."
+    default: eks
+
+grains:
+  validate:
+    kind: shell
+    spec:
+      agent:
+        name: '{{ .inputs.compute-service }}'
+      files:
+        - path: "https://github.com/shaiquali/test-spec2-public/blob/master/scripts/echo.sh"
+        - path: "https://github.com/shaiquali/test-spec2-public/blob/master/scripts/echo2.sh"
+      activities:
+        deploy:
+          commands:
+            - "./echo.sh"
+            - "./echo2.sh"
+            
