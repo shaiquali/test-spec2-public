@@ -1,1 +1,1 @@
-echo "Another test"
+echo "Another test github"
