@@ -16,8 +16,8 @@ grains:
       agent:
         name: '{{ .inputs.compute-service }}'
       files:
-        - path: "https://github.com/shaiquali/test-spec2-public/blob/master/scripts/echo.sh"
-        - path: "https://github.com/shaiquali/test-spec2-public/blob/master/scripts/echo2.sh"
+        - path: https://github.com/shaiquali/test-spec2-public.git//scripts/echo.sh
+        - path: https://github.com/shaiquali/test-spec2-public.git//scripts/echo2.sh
       activities:
         deploy:
           commands:
