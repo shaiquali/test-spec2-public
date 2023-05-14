@@ -15,8 +15,7 @@ grains:
     kind: terraform
     spec: 
       source:
-        store: spec2_repo_blue
-        path: terraform/s3
+        path: http://github.com/shaiquali/test-spec2-public.git//terraform/s3
       agent:
         name: '{{.inputs.compute_service_name}}'
       inputs:
