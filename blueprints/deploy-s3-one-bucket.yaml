@@ -28,7 +28,7 @@ grains:
         - acl: private
         - name: 'test-bucket-1-s3-{{ sandboxid | downcase }}'
         - tag1: 'value_from_blue'
-        - param_tag: '{{.inputs.compute_service_name}}'
+        - param_tag: '{{.inputs.sen}}'
       outputs:
         - s3_bucket_arn
       scripts: 
