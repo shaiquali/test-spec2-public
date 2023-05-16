@@ -57,3 +57,9 @@ variable "tag4" {
     default = ""
 }
 
+variable "param_tag" {
+    description = "param_tag" 
+    type = string
+    default = ""
+}
+
