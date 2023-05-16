@@ -9,6 +9,10 @@ inputs:
   compute_service_name:
     type: string
     default: "eks"
+  sen:
+    type: string
+    default: "don't show me"
+    sensitive: true
 
 grains:
   bucket_1:
@@ -24,7 +28,7 @@ grains:
         - acl: private
         - name: 'test-bucket-1-s3-{{ sandboxid | downcase }}'
         - tag1: 'value_from_blue'
-        - param_tag: '{{ .params.sen }}'
+        - param_tag: '{{.inputs.compute_service_name}}'
       outputs:
         - s3_bucket_arn
       scripts: 
