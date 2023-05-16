@@ -24,7 +24,6 @@ resource "aws_s3_bucket" "bucket" {
   tags = {
     Name        = "My buckett"
     Environment = "Dev"
-    tag_test = "Version 1"
     tag1 = var.tag1
     tag2 = var.tag2
     tag3 = var.tag3
