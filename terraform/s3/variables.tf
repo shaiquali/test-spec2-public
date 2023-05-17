@@ -63,3 +63,10 @@ variable "param_tag" {
     default = ""
 }
 
+variable "test_tag"{
+    description = "test_tag" 
+    type = string
+    default = ""
+}
+    
+
