@@ -15,7 +15,7 @@ inputs:
     sensitive: true
   non_sen:
     type: string
-    default: "ShowMe"
+    default: "ValueFromTagV1"
 
 grains:
   bucket_1:
