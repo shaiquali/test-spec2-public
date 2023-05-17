@@ -66,7 +66,7 @@ variable "param_tag" {
 variable "test_tag"{
     description = "test_tag" 
     type = string
-    default = ""
+    default = "ValueFromTag"
 }
     
 
