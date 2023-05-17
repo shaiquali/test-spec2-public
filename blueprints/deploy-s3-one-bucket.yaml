@@ -13,6 +13,9 @@ inputs:
     type: string
     default: "don't show me"
     sensitive: true
+  non_sen:
+    type: string
+    default: "show me"
 
 grains:
   bucket_1:
@@ -27,7 +30,7 @@ grains:
         - region: eu-west-1
         - acl: private
         - name: 'test-bucket-1-s3-{{ sandboxid | downcase }}'
-        - tag1: 'value_from_blue'
+        - tag1: '{{.inputs.non_sen}}'
         - param_tag: '{{.inputs.sen}}'
       outputs:
         - s3_bucket_arn
