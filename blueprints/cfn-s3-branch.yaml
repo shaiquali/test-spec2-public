@@ -1,0 +1,24 @@
+spec_version: 2-preview
+description: "PoC aws s3 cfn blueprint"
+
+inputs:
+   # The access_control property is case-sensitive and must be one of the following values:
+   # Private, PublicRead, PublicReadWrite, AuthenticatedRead, LogDeliveryWrite, BucketOwnerRead, BucketOwnerFullControl, or AwsExecRead
+   access_control:
+       type: string
+       display-style: normal
+       default: "Private"
+
+grains:
+  cfn-s3-grain:
+    kind: cloudformation
+    spec:
+      source:
+        store: spec2_repo_blue
+        path: cloudFormation/s3.json
+        branch: test
+      region: us-east-1
+      authentication:
+        - aws-auth
+      inputs:
+        - accesscontrol: '{{ .inputs.access_control }}'
