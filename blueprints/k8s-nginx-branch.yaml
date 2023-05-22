@@ -1,0 +1,43 @@
+kind: blueprint
+spec: 2
+spec_version: 2-preview
+description: Blueprint with nginx kubernetes grain.
+
+inputs:
+  namespace:
+    type: string
+    display-style: normal
+    default: "shaip-sandbox"
+    description: "Kubernetes namespace for sandbox to be ran in."
+  host_name:
+    type: string
+    display-style: normal
+    default: "eks"
+    description: "execution host name"
+  service_account:
+    type: string
+    display-style: normal
+    default: "shaip-serviceaccount"
+
+grains:
+  nginx:
+    kind: kubernetes
+    spec:
+      source:
+        store: spec2_repo_blue
+        path: manifests/nginx/nginxmanifest.yaml
+        branch: test
+      namespace: '{{ .inputs.namespace }}'
+      env-vars:
+      - test: newValue
+      tags:
+        auto-tag: false
+      agent:
+        name: '{{.inputs.host_name}}'
+        service-account: '{{.inputs.service_account}}'
+      scripts:
+        post-kubernetes-install:
+          source:
+            store: spec2_repo_blue
+            path: scripts/echo.sh
+  
