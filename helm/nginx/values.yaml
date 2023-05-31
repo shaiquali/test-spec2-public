@@ -14,7 +14,6 @@ global:
   ##
   imagePullSecrets: []
   
-test_tag: "init_value"
 ## @section Common parameters
 
 ## @param nameOverride String to partially override nginx.fullname template (will maintain the release name)
