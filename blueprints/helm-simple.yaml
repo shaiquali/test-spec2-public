@@ -10,10 +10,10 @@ outputs:
 inputs:
   namespace:
     type: string
-    default: yakir-prod
+    default: shaip-sandbox
   execution_host:
     type: string
-    default: qualidev2
+    default: eks
     description: the name of the execution host to be used
   release_name:
     type: string
