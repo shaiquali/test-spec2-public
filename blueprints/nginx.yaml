@@ -17,8 +17,6 @@ grains:
         path: helm/nginx
       agent:
         name: '{{ .inputs.host_name }}'
-      inputs:
-        - nameOverride: "value"
       commands:
         - dep up helm/nginx
       scripts:
