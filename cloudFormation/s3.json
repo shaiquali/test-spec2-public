@@ -3,7 +3,7 @@
 		"accesscontrol": {
 			"Type": "String",
 			"Default": "PublicRead",
-			"Description": "Access Control value"
+			"Description": "Access Control value tez"
 		}
 	},
 	"Outputs": {
