@@ -18,7 +18,7 @@ grains:
       agent:
         name: '{{ .inputs.host_name }}'
       inputs:
-        - test_tag: "value"
+        - nameOverride: "value"
       commands:
         - dep up helm/nginx
       scripts:
