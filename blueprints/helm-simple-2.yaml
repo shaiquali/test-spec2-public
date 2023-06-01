@@ -62,3 +62,4 @@ grains:
       inputs:
         - replicaCount: '{{.inputs.replica_count}}'
         - image.debug: 'true'
+      depends-on: helloHelm
