@@ -41,7 +41,7 @@ variable "tag1" {
 variable "tag2" {
     description = "tag2" 
     type = string
-    default = ""
+    default = "value2"
 }
 
 variable "tag3" {
