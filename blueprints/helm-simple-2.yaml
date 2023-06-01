@@ -15,9 +15,13 @@ inputs:
     type: string
     default: eks
     description: the name of the execution host to be used
-  release_name:
+  release_name_1:
     type: string
-    default: ''
+    default: 'gamal'
+    description: the name of helm release
+ release_name_2:
+    type: string
+    default: 'gama2'
     description: the name of helm release
   generic_input:
     type: string
@@ -40,7 +44,7 @@ grains:
         name: '{{.inputs.execution_host}}'
       commands:
         - dep up helm/nginx-test
-      release: '{{.inputs.release_name}}'
+      release: '{{.inputs.release_name_1}}'
       namespace: '{{.inputs.namespace}}'
       inputs:
         - replicaCount: '{{.inputs.replica_count}}'
@@ -57,7 +61,7 @@ grains:
         name: '{{.inputs.execution_host}}'
       commands:
         - dep up helm/nginx-test
-      release: '{{.inputs.release_name}}'
+      release: '{{.inputs.release_name_2}}'
       namespace: '{{.inputs.namespace}}'
       inputs:
         - replicaCount: '{{.inputs.replica_count}}'
