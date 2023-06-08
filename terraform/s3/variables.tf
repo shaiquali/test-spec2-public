@@ -60,7 +60,7 @@ variable "tag4" {
 variable "param_tag" {
     description = "param_tag" 
     type = string
-    default = ""
+    default = "testUpdate"
 }
 
 variable "test_tag"{
