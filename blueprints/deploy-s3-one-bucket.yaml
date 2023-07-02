@@ -27,7 +27,7 @@ grains:
       agent:
         name: '{{.inputs.compute_service_name}}'
       inputs:
-        - region: eu-west-1-gamal
+        - region: eu-west-1
         - acl: private
         - name: 'test-bucket-1-s3-{{ sandboxid | downcase }}'
         - tag1: '{{.inputs.non_sen}}'
