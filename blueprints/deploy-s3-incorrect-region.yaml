@@ -1,0 +1,45 @@
+spec_version: 2
+description: deploy s3 bucket
+
+outputs:
+  bucket_1:
+    value: '{{ .grains.bucket_1.outputs.s3_bucket_arn }}'
+
+inputs:
+  compute_service_name:
+    type: string
+    default: "eks"
+  sen:
+    type: string
+    default: "DontShowMe"
+    sensitive: true
+  non_sen:
+    type: string
+    default: "ShowMe"
+
+grains:
+  bucket_1:
+    kind: terraform
+    spec: 
+      source:
+        store: spec2_repo_blue
+        path: terraform/s3
+      agent:
+        name: '{{.inputs.compute_service_name}}'
+      inputs:
+        - region: eu-west-1-gamal
+        - acl: private
+        - name: 'test-bucket-1-s3-{{ sandboxid | downcase }}'
+        - tag1: '{{.inputs.non_sen}}'
+        - param_tag: '{{.inputs.sen}}'
+      outputs:
+        - s3_bucket_arn
+      scripts: 
+        pre-tf-init:
+          source:
+             store: spec2_repo_blue
+             path : scripts/echo.sh
+        pre-tf-destroy:
+          source:
+            store: spec2_repo_blue
+            path : scripts/echo2.sh
