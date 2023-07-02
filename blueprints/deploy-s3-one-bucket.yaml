@@ -9,6 +9,9 @@ inputs:
   compute_service_name:
     type: string
     default: "eks"
+  region:
+    type: string
+    default: "eu-west-1"
   sen:
     type: string
     default: "DontShowMe"
@@ -27,7 +30,7 @@ grains:
       agent:
         name: '{{.inputs.compute_service_name}}'
       inputs:
-        - region: eu-west-1
+        - region: '{{.inputs.region}}'
         - acl: private
         - name: 'test-bucket-1-s3-{{ sandboxid | downcase }}'
         - tag1: '{{.inputs.non_sen}}'
