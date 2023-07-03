@@ -1,0 +1,86 @@
+spec_version: 2
+description: Online Boutique is a cloud-first microservices demo application. Online Boutique consists of an 11-tier microservices application. The application is a web-based e-commerce app where users can browse items, add them to the cart, and purchase them.
+
+inputs:
+  host:
+    type: agent
+    allowed-values: eks
+  validation-threshold:
+    type: string
+    default: 50
+    
+outputs:
+  Architecture Diagram:
+    value: 'https://raw.githubusercontent.com/GoogleCloudPlatform/microservices-demo/main/docs/img/architecture-diagram.png'
+    kind: link
+  Portal Link:
+    value: 'http://{{ grains.portal.scripts.post-kubernetes-install.outputs.frontend}}'
+    kind: link
+
+grains:
+  validate-datree:
+    kind: shell
+    spec:
+      files:
+        - source: microservices-boutique-demo
+          path: release/kubernetes-manifests.yaml
+      agent:
+        name: '{{ inputs.host }}'
+      activities:
+        deploy:
+          commands:
+            - "apt-get -y install git unzip curl"
+            - "curl https://get.datree.io | /bin/bash"
+            - "datree config set token 0753444a-fd85-4122-a0c6-9143d1bf1671"
+            - "datree test ./kubernetes-manifests.yaml -o simple --ignore-missing-schemas"
+  validate-kubescape:
+    kind: shell
+    spec:
+      files:
+        - source: microservices-boutique-demo
+          path: release/kubernetes-manifests.yaml
+      agent:
+        name: '{{ inputs.host }}'
+      activities:
+        deploy:
+          commands:
+            - "apt-get -y install git unzip curl"
+            - "curl -s https://raw.githubusercontent.com/kubescape/kubescape/master/install.sh | /bin/bash"
+            - "kubescape scan *.yaml --fail-threshold {{ .inputs.validation-threshold }} --enable-color"
+  portal:
+    kind: kubernetes
+    depends-on: validate-datree, validate-kubescape
+    spec:
+      sources:
+        - store: microservices-boutique-demo
+          path: release/kubernetes-manifests.yaml
+      namespace: torque-sandboxes
+      agent:
+        name: '{{ inputs.host }}'
+      # inputs:
+      # - namespace: torque-sandboxes
+      # The environment variables declared in this section will be available during the grain deployment as well as the grain destroy phase
+      # env-vars:
+      # - VAR_NAME: var value
+      env-vars: []
+      scripts:
+        post-kubernetes-install:
+          source:
+            store: assets
+            path: scripts/get-external-frontend.sh
+          outputs:
+            - frontend
+  health-check:
+    kind: shell
+    depends-on: portal
+    spec:
+      agent:
+        name: '{{ inputs.host }}'
+      env-vars:
+      - FRONTEND_URL: 'http://{{ grains.portal.scripts.post-kubernetes-install.outputs.frontend}}'
+      activities:
+        deploy:
+          commands:
+            - "apt-get -y install curl"
+            - "export FRONTEND_URL=http://{{ grains.portal.scripts.post-kubernetes-install.outputs.frontend}}"
+            - "curl https://gist.githubusercontent.com/TomerAdmon/d8b23b7c0d67b396c4a352a2e0981612/raw/244548d7aa1544b342feeb52e8aae788d05ec171/wait_for_website.sh | /bin/bash"
