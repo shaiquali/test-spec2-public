@@ -1,0 +1,21 @@
+spec_version: 2
+description: Blueprint for nginx helm chart
+
+inputs:
+  host_name:
+    type: agent
+    default: eks
+
+grains:
+  nginx:
+    kind: helm
+    spec:
+      source:
+        store: spec2_repo_blue
+        path: helm/bitnami_nginx
+        commit: a97c8e99fd8b28985bf2d9cd57c31b644cbc650f
+      agent:
+        name: '{{ .inputs.host_name }}'
+      commands:
+        - dep up helm/bitnami_nginx
+        
