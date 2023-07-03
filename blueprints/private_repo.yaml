@@ -1,0 +1,23 @@
+spec_version: 2
+description: Online Boutique is a cloud-first microservices demo application. Online Boutique consists of an 11-tier microservices application. The application is a web-based e-commerce app where users can browse items, add them to the cart, and purchase them.
+
+inputs:
+  host:
+    type: agent
+    default: "eks"
+
+grains:
+  validate-datree:
+    kind: shell
+    spec:
+      files:
+          - path: https://api.github.com/repos/TomerAdmon/microservices-boutique-demo/release/kubernetes-manifests.yaml
+      agent:
+        name: '{{ inputs.host }}'
+      activities:
+        deploy:
+          commands:
+            - "apt-get -y install git unzip curl"
+            - "curl https://get.datree.io | /bin/bash"
+            - "datree config set token 0753444a-fd85-4122-a0c6-9143d1bf1671"
+            - "datree test ./kubernetes-manifests.yaml -o simple --ignore-missing-schemas"
