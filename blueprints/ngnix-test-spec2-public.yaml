@@ -17,9 +17,4 @@ grains:
         name: '{{ .inputs.host_name }}'
       commands:
         - dep up helm/bitnami_nginx
-      scripts:
-        post-helm-install:
-          source:
-            store: spec2_repo_blue
-            path: scripts/echo-commit.sh
         
