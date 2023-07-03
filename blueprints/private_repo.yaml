@@ -1,10 +1,6 @@
 spec_version: 2
 description: deploy s3 bucket
 
-outputs:
-  bucket_1:
-    value: '{{ .grains.bucket_1.outputs.s3_bucket_arn }}'
-
 inputs:
   compute_service_name:
     type: string
