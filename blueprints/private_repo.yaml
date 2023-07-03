@@ -11,7 +11,7 @@ grains:
     kind: shell
     spec:
       files:
-          - path: https://api.github.com/repos/TomerAdmon/microservices-boutique-demo/release/kubernetes-manifests.yaml
+          - path: https://api.github.com/repos/TomerAdmon/microservices-boutique-demo.git//release/kubernetes-manifests.yaml
       agent:
         name: '{{ inputs.host }}'
       activities:
