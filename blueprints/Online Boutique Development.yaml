@@ -4,7 +4,7 @@ description: Online Boutique is a cloud-first microservices demo application. On
 inputs:
   host:
     type: agent
-    allowed-values: eks
+    default: "eks"
   validation-threshold:
     type: string
     default: 50
