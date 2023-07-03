@@ -1,23 +1,34 @@
 spec_version: 2
-description: Online Boutique is a cloud-first microservices demo application. Online Boutique consists of an 11-tier microservices application. The application is a web-based e-commerce app where users can browse items, add them to the cart, and purchase them.
+description: deploy s3 bucket
+
+outputs:
+  bucket_1:
+    value: '{{ .grains.bucket_1.outputs.s3_bucket_arn }}'
 
 inputs:
-  host:
-    type: agent
+  compute_service_name:
+    type: string
     default: "eks"
+  region:
+    type: string
+    default: "eu-west-1"
+  sen:
+    type: string
+    default: "DontShowMe"
+    sensitive: true
+  non_sen:
+    type: string
+    default: "ShowMe"
 
 grains:
-  validate-datree:
-    kind: shell
-    spec:
-      files:
-          - path: https://github.com/TomerAdmon/microservices-boutique-demo.git//release/kubernetes-manifests.yaml
+  bucket_1:
+    kind: terraform
+    spec: 
+      source:
+        path: https://github.com/shaiquali/test-spec2-private.git//terraform/s3
       agent:
-        name: '{{ inputs.host }}'
-      activities:
-        deploy:
-          commands:
-            - "apt-get -y install git unzip curl"
-            - "curl https://get.datree.io | /bin/bash"
-            - "datree config set token 0753444a-fd85-4122-a0c6-9143d1bf1671"
-            - "datree test ./kubernetes-manifests.yaml -o simple --ignore-missing-schemas"
+        name: '{{.inputs.compute_service_name}}'
+      inputs:
+        - region: '{{.inputs.region}}'
+        - acl: private
+        - name: 'test-bucket-1-s3-{{ sandboxid | downcase }}'
