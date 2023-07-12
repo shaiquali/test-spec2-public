@@ -1,0 +1,32 @@
+spec_version: 2-preview
+description: deploy s3 bucket nested
+
+inputs:
+  compute_service_name:
+    type: agent
+    default: "eks"
+
+grains:
+  s3-buckets:
+    kind: blueprint
+    spec:
+      source:
+        store: spec2_repo_blue
+        commit: c539aab1af64532f7ada4396f78533121a21f7e8
+        path: github.com/QualiNext/test-spec2-public/blueprints/deploy-s3-two-buckets.yaml
+      agent:
+        name: '{{.inputs.compute_service_name}}'
+
+  bucket_outer:
+    kind: terraform
+    spec: 
+      source:
+        path: github.com/QualiNext/test-spec2-public/terraform/s3
+      agent:
+        name: '{{.inputs.compute_service_name}}'
+      inputs:
+        - region: us-west-1
+        - acl: private
+        - name: 'amazing-outer-bucket-s3-{{ sandboxid | downcase }}'
+      outputs:
+        - s3_bucket_arn
