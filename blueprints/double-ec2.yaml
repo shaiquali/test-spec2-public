@@ -1,0 +1,27 @@
+spec_version: 2-preview
+description: deploy 2 ec2 instance
+
+inputs:
+  host_name:
+    type: string
+    display-style: normal
+    default: "eks"
+
+grains:
+  ec2_1:
+    kind: terraform
+    spec: 
+      source:
+        store: spec2_repo_blue
+        path: terraform/ec2-simple
+      agent:
+        name: '{{ .inputs.host_name }}'
+  ec2_2:
+    kind: terraform
+    spec: 
+      source:
+        store: spec2_repo_blue
+        path: terraform/ec2-simple2
+      agent:
+        name: '{{ .inputs.host_name }}'
+
