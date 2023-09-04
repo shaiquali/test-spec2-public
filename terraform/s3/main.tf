@@ -35,7 +35,7 @@ resource "aws_s3_bucket" "bucket" {
   }
 }
 
-# CREATE USER and POLICY a a
+# CREATE USER and POLICY a
 resource "aws_iam_policy" "policy" {
   count = "${var.user == "none" ? 0 : 1}"
   name        = "s3_access_${var.name}"
