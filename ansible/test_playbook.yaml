@@ -11,7 +11,7 @@
         msg: "distribution: '{{ ansible_facts['distribution'] }}' os_family: '{{ ansible_facts['os_family'] }}'"
 
     - name: Store echo result in a variable
-      ansible.builtin.shell: echo $SSH_CLIENT
+      ansible.builtin.shell: echo $SSH_CLIENT !!
       register: echo_result
 
     - name: Print stored stdout_lines result
