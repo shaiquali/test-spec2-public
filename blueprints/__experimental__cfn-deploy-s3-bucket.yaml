@@ -26,6 +26,8 @@ grains:
   cfn-s3-grain:
     kind: cloudformation
     spec:
+      agent:
+        name: eks
       source:
         # store: autogen_repo_sandbox_3416a76b
         path: https://quali-dannyk-storage.s3.amazonaws.com/AWSS3Bucket_in_out.json    
