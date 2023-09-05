@@ -2,17 +2,6 @@ spec_version: 2-preview
 
 description: description text
 
-
-
-# inputs:
-#   some-name:
-#     type: string/numeric/boolean
-#     display-style: normal/multiline
-#     default: "abc"
-#     description: "description"
-
-
-
 outputs:
  generic_output:
    value: '{{.inputs.generic_input}}'
@@ -41,6 +30,9 @@ inputs:
   namespace:
     type: string
     default: 'tomer-c-test2'
+  compute_service_name:
+    type: string
+    default: "eks"
 
 grains:
   helloHelm:
@@ -49,9 +41,8 @@ grains:
       source:
         path: https://github.com/QualiNext/test-spec2-public.git//helm/nginx
       namespace: '{{ inputs.namespace }}'
-      host:
-        name: '{{.inputs.execution_host}}'
-        service-account: '{{.inputs.service_account}}'
+      agent:
+        name: '{{.inputs.compute_service_name}}'
       commands:
         - dep up helm/nginx
       release: '{{.inputs.release_name}}'
