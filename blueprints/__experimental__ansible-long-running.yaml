@@ -8,7 +8,7 @@ grains:
     spec: 
       source:
         path: https://github.com/QualiNext/test-spec2-public//ansible/long_running_playbook.yaml
-      host:
+      agent:
         name: docker-agent
 
       inventory-file:
