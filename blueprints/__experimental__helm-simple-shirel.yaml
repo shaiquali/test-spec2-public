@@ -4,7 +4,8 @@ description: description text
 
 inputs:
   compute_service_name:
-    type: string     
+    type: string
+    default: "eks"
   release:
     type: string
     default: ""
@@ -15,9 +16,8 @@ grains:
     spec:
       source:
         path: https://github.com/QualiNext/test-spec2-public.git//helm/nginx
-      host:
+      agent:
         name: '{{.inputs.compute_service_name}}'
-        service-account: torque-sa-0d7db5       
       commands:
         - dep up helm/nginx
 
