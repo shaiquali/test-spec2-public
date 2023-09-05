@@ -33,6 +33,5 @@ grains:
         - test: newValue
       tags:
         auto-tag: false
-      host:
+      agent:
         name: '{{.inputs.compute_service_name}}'
-        service-account: "default"
