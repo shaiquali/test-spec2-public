@@ -52,10 +52,10 @@ grains:
     depends-on: virtual_machine
     kind: ansible
     spec: 
+      agent:
+        name: docker-agent
       source:
         path: https://github.com/QualiNext/test-spec2-public//ansible/install_httpd_rhel.yaml
-      host:
-        name: docker-agent
       inventory-file:
         all:
           hosts:
