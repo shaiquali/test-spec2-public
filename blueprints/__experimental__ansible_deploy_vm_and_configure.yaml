@@ -3,6 +3,9 @@ description: Deployes a vm from a template on a vcenter with tf and configures i
 
 
 inputs:
+  compute_service_name:
+    type: string
+    default: "eks"
   virtual_machine_template_name:
     display-style: normal
     type: string
@@ -31,6 +34,8 @@ grains:
   virtual_machine:
     kind: terraform
     spec:
+      agent:
+        name: '{{.inputs.compute_service_name}}'
       inputs:
         - virtual_machine_template_name: '{{ .inputs.virtual_machine_template_name }}'
         - virtual_machine_name: '{{ .inputs.virtual_machine_name }}'
