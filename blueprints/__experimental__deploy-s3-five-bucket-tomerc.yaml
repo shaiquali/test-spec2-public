@@ -26,6 +26,9 @@ inputs:
     display-style: normal
     default: tomer-c-power-user
     description: "custom service account for terraform - s3"
+  compute_service_name:
+    type: string
+    default: "eks"
 
 grains:
   tomerc_bucket_1:
@@ -34,9 +37,8 @@ grains:
       source:
         store: autogen_repo_asset_0af60acf
         path: terraform/s3-tomerc
-      host:
-        name: '{{.inputs.execution_host}}'
-        service-account: '{{.inputs.tf-service-account}}'
+      agent:
+        name: '{{.inputs.compute_service_name}}'
       inputs:
         - region: us-west-1
         - acl: private
@@ -53,9 +55,8 @@ grains:
       source:
         store: autogen_repo_asset_0af60acf
         path: terraform/s3-tomerc
-      host:
-        name: '{{.inputs.execution_host}}'
-        service-account: '{{.inputs.tf-service-account}}'
+      agent:
+        name: '{{.inputs.compute_service_name}}'
       inputs:
         - region: us-west-1
         - acl: private
@@ -71,9 +72,8 @@ grains:
       source:
         store: autogen_repo_asset_0af60acf
         path: terraform/s3-tomerc
-      host:
-        name: '{{.inputs.execution_host}}'
-        service-account: '{{.inputs.tf-service-account}}'
+      agent:
+        name: '{{.inputs.compute_service_name}}'
       inputs:
         - region: us-west-1
         - acl: private
@@ -89,9 +89,8 @@ grains:
       source:
         store: autogen_repo_asset_0af60acf
         path: terraform/s3-tomerc
-      host:
-        name: '{{.inputs.execution_host}}'
-        service-account: '{{.inputs.tf-service-account}}'
+      agent:
+        name: '{{.inputs.compute_service_name}}'
       inputs:
         - region: us-west-1
         - acl: private
@@ -107,9 +106,8 @@ grains:
       source:
         store: autogen_repo_asset_0af60acf
         path: terraform/s3-tomerc
-      host:
-        name: '{{.inputs.execution_host}}'
-        service-account: '{{.inputs.tf-service-account}}'
+      agent:
+        name: '{{.inputs.compute_service_name}}'
       inputs:
         - region: us-west-1
         - acl: private
