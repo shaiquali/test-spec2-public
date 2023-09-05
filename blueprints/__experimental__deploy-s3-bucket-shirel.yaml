@@ -16,8 +16,8 @@ grains:
       source:
         store: test-spec2-public
         path: terraform/s3
-      host:
-        name: '{{.inputs.compute_service_name}}' 
+      agent:
+        name: '{{.inputs.compute_service_name}}'
         service-account: torque-sa-0d7db5
       inputs:
         - region: us-west-1
