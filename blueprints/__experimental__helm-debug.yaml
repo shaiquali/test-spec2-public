@@ -4,13 +4,10 @@ description: description text
 
 
 
-# inputs:
-#   some-name:
-#     type: string/numeric/boolean
-#     display-style: normal/multiline
-#     default: "abc"
-#     description: "description"
-
+inputs:
+  compute_service_name:
+    type: string
+    default: "eks"
 
 
 outputs:
@@ -40,8 +37,8 @@ grains:
     spec:
       source:
         path: https://github.com/QualiNext/test-spec2-public.git//helm/nginx-test
-      host:
-        name: '{{.inputs.execution_host}}'
+      agent:
+        name: '{{.inputs.compute_service_name}}'
       commands:
         - dep up helm/nginx-test
       release: '{{.inputs.release_name}}'
