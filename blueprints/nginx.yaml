@@ -17,6 +17,9 @@ grains:
         path: helm/nginx
       agent:
         name: '{{ .inputs.host_name }}'
+      inputs:
+        - MyServiceAccountName: 'torque-sa' 
+        - EnvironmentID: '{{ envid | downcase }}'
       commands:
         - dep up helm/nginx
       scripts:
